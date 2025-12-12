@@ -55,9 +55,9 @@ public class LeaderDashboard extends javax.swing.JFrame {
             }
         });
 
-        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(0, 102, 102));
-        lblTitle.setText("Welcome Employee");
+        lblTitle.setText("Welcome Leader");
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
@@ -113,7 +113,7 @@ public class LeaderDashboard extends javax.swing.JFrame {
                 .addComponent(tasks)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(projects)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
                 .addComponent(logOut)
                 .addGap(26, 26, 26))
         );
