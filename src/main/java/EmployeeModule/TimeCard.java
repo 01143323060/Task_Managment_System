@@ -22,7 +22,7 @@ public class TimeCard {
     }
 
     public TimeCard(int cardId, String employeeId, LocalDate date,
-                    LocalDateTime checkIn, LocalDateTime checkOut) {
+            LocalDateTime checkIn, LocalDateTime checkOut) {
         this.cardId = cardId;
         this.employeeId = employeeId;
         this.date = date;
@@ -35,23 +35,41 @@ public class TimeCard {
     }
 
     // Getters / Setters
-    public int getCardId() { return cardId; }
-    public String getEmployeeId() { return employeeId; }
-    public LocalDate getDate() { return date; }
+    public int getCardId() {
+        return cardId;
+    }
 
-    public LocalDateTime getCheckIn() { return checkIn; }
-    public void setCheckIn(LocalDateTime checkIn) { this.checkIn = checkIn; }
+    public String getEmployeeId() {
+        return employeeId;
+    }
 
-    public LocalDateTime getCheckOut() { return checkOut; }
-    public void setCheckOut(LocalDateTime checkOut) { this.checkOut = checkOut; }
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public LocalDateTime getCheckIn() {
+        return checkIn;
+    }
+
+    public void setCheckIn(LocalDateTime checkIn) {
+        this.checkIn = checkIn;
+    }
+
+    public LocalDateTime getCheckOut() {
+        return checkOut;
+    }
+
+    public void setCheckOut(LocalDateTime checkOut) {
+        this.checkOut = checkOut;
+    }
 
     @Override
     public String toString() {
         return cardId + "|" + employeeId + "|" + date + "|" +
-               checkIn + "|" + (checkOut != null ? checkOut : "null");
+                checkIn + "|" + (checkOut != null ? checkOut : "null");
     }
 
     public String getUserId() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

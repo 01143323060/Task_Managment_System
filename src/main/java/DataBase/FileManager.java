@@ -5,9 +5,7 @@ import java.nio.file.*;
 import java.util.*;
 
 public class FileManager {
-
     private static final String BASE_PATH = "Resources" + File.separator;
-
     static {
         try {
             Files.createDirectories(Paths.get(BASE_PATH));
@@ -15,7 +13,6 @@ public class FileManager {
             System.err.println("Could not create Resources folder: " + e.getMessage());
         }
     }
-
     public static void writeFile(String fileName, List<String> lines) {
         try (PrintWriter pw = new PrintWriter(new FileWriter(fileName))) {
             for (String line : lines) {
@@ -25,7 +22,6 @@ public class FileManager {
             System.err.println("Error writing to file: " + fileName);
         }
     }
-
     public static List<String> readFile(String fileName) {
         List<String> lines = new ArrayList<>();
         File file = new File(fileName);

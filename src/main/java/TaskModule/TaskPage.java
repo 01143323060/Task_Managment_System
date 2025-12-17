@@ -20,11 +20,13 @@ public class TaskPage {
     private String evaluation = "Not evaluated yet";
     private static int idCounter = 1;
 
-    public TaskPage() {}
+    public TaskPage() {
+
+    }
 
     public TaskPage(int code, String title, String desc, Employee assignedEmp,
-                    TaskPhases taskPhase, Projects project, int priority,
-                    Employee creator, Date start, Date end, double hours) {
+            TaskPhases taskPhase, Projects project, int priority,
+            Employee creator, Date start, Date end, double hours) {
         this.taskId = idCounter++;
         this.code = code;
         this.title = title;
@@ -40,31 +42,119 @@ public class TaskPage {
     }
 
     // Getters & Setters (أضفت الكل عشان يبقى كامل)
-    public int getTaskId() { return taskId; }
-    public void setTaskId(int id) { this.taskId = id; }
-    public int getCode() { return code; }
-    public String getTitle() { return title; }
-    public String getDesc() { return desc; }
-    public Employee getAssignedEmp() { return assignedEmp; }
-    public TaskPhases getTaskPhase() { return taskPhase; }
-    public Projects getProject() { return project; }
-    public int getPriority() { return priority; }
-    public Employee getCreator() { return creator; }
-    public Date getStartDate() { return startDate; }
-    public Date getEndDate() { return endDate; }
-    public double getEstimationHours() { return estimationHours; }
-    public String getEvaluation() { return evaluation; }
-    public void setEvaluation(String evaluation) { this.evaluation = evaluation; }
+    public int getTaskId() {
+        return taskId;
+    }
+
+    public void setTaskId(int id) {
+        this.taskId = id;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public Employee getAssignedEmp() {
+        return assignedEmp;
+    }
+
+    public void setAssignedEmp(Employee assignedEmp) {
+        this.assignedEmp = assignedEmp;
+    }
+
+    public TaskPhases getTaskPhase() {
+        return taskPhase;
+    }
+
+    public void setTaskPhase(TaskPhases taskPhase) {
+        this.taskPhase = taskPhase;
+    }
+
+    public Projects getProject() {
+        return project;
+    }
+
+    public void setProject(Projects project) {
+        this.project = project;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
+
+    public Employee getCreator() {
+        return creator;
+    }
+
+    public void setCreator(Employee creator) {
+        this.creator = creator;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
+    public double getEstimationHours() {
+        return estimationHours;
+    }
+
+    public void setEstimationHours(double estimationHours) {
+        this.estimationHours = estimationHours;
+    }
+
+    public String getEvaluation() {
+        return evaluation;
+    }
+
+    public void setEvaluation(String evaluation) {
+        this.evaluation = evaluation;
+    }
 
     public String toFileString() {
         return taskId + "|" + code + "|" + title + "|" + desc + "|" +
-               (assignedEmp != null ? assignedEmp.getID() : "") + "|" +
-               (taskPhase != null ? taskPhase.getid() : "") + "|" +
-               (project != null ? project.getID() : "") + "|" +
-               priority + "|" +
-               (creator != null ? creator.getID() : "") + "|" +
-               startDate.getTime() + "|" + endDate.getTime() + "|" +
-               estimationHours + "|" + evaluation;
+                (assignedEmp != null ? assignedEmp.getID() : "") + "|" +
+                (taskPhase != null ? taskPhase.getid() : "") + "|" +
+                (project != null ? project.getID() : "") + "|" +
+                priority + "|" +
+                (creator != null ? creator.getID() : "") + "|" +
+                startDate.getTime() + "|" + endDate.getTime() + "|" +
+                estimationHours + "|" + evaluation;
     }
 
     public static TaskPage fromFileString(String line) {
@@ -94,13 +184,15 @@ public class TaskPage {
         t.estimationHours = Double.parseDouble(p[11]);
         t.evaluation = p[12];
 
-        if (t.taskId >= idCounter) idCounter = t.taskId + 1;
+        if (t.taskId >= idCounter)
+            idCounter = t.taskId + 1;
         return t;
     }
 
     public static void saveTasks(String path, ArrayList<TaskPage> tasks) {
         List<String> lines = new ArrayList<>();
-        for (TaskPage t : tasks) lines.add(t.toFileString());
+        for (TaskPage t : tasks)
+            lines.add(t.toFileString());
         FileManager.writeFile(path, lines);
     }
 
@@ -110,7 +202,8 @@ public class TaskPage {
         for (String line : lines) {
             try {
                 list.add(fromFileString(line));
-            } catch (Exception ignored) {}
+            } catch (Exception ignored) {
+            }
         }
         return list;
     }
